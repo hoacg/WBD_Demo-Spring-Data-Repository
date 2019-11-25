@@ -15,4 +15,14 @@ public class CustomerService implements ICustomerService {
         List<Customer> customerList = (List<Customer>) customerRepository.findAll();
         return customerList;
     }
+
+    @Override
+    public Customer save(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    @Override
+    public Customer getCustomerById(Long id) {
+        return customerRepository.findOne(id);
+    }
 }

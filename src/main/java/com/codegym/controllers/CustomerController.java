@@ -5,8 +5,7 @@ import com.codegym.services.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,12 +25,23 @@ public class CustomerController {
 
     @GetMapping("/customers/get-form")
     public String getCustomerForm() {
-        return "";
+        return "customer-form";
     }
 
     @PostMapping("/customers")
-    public String createCustmer() {
-        return "";
+    public String createCustomer(@ModelAttribute Customer customer, Model model) {
+
+        Customer newCustomer = customerService.save(customer);
+
+        model.addAttribute("customer", newCustomer);
+        return "customer";
+    }
+
+    @GetMapping("/customers/{customer}")
+    public String getCustomerDetail(Customer customer, Model model) {
+        model.addAttribute("customer", customer);
+
+        return "customer";
     }
 
 }
