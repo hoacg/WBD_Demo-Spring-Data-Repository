@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 
-<form action="/customers" method="POST">
+<form action="/customers" method="POST" th:object="${customer}">
 
     <table>
         <tr>
             <td>First name</td>
             <td><input type="text" name="firstName" /></td>
+            <td>
+                <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" />
+
+                </p>
+            </td>
         </tr>
         <tr>
             <td>Last name</td>
             <td><input type="text" name="lastName" /></td>
+            <td>
+                <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Phone Number</td>
+            <td><input type="text" name="phoneNumber" /></td>
+            <td>
+                <p th:if="${#fields.hasErrors('a')}" th:errors="*{a}" />
+            </td>
         </tr>
 
         <tr>
