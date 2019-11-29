@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<h1 th:utext="#{app.heading}"></h1>
+
 <div th:each="customer: ${customers}">
 <p th:text="${customer.getFirstName()}"></p>
 </div>
