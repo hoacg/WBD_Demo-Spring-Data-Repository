@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th>
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+</head>
+<body>
+
+<p th:if="${message}" th:text="${message}"></p>
+
+<form th:action="@{/login}" th:object="${user}" method="POST">
+    Email:<br>
+    <input type="text" th:field="*{email}" /><br>
+    Password:<br>
+    <input type="password" th:field="*{password}" />
+
+    <br>
+
+    <button type="submit">Login</button>
+</form>
+
+</body>
+</html>

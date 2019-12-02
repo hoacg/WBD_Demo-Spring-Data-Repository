@@ -2,6 +2,8 @@ package com.codegym;
 
 import com.codegym.services.CustomerService;
 import com.codegym.services.ICustomerService;
+import com.codegym.services.IUserService;
+import com.codegym.services.UserService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -124,6 +126,11 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     @Bean
     public ICustomerService customerService() {
         return new CustomerService();
+    }
+
+    @Bean
+    public IUserService userService() {
+        return new UserService();
     }
 
     @Bean
