@@ -7,7 +7,7 @@ import javax.servlet.Filter;
 public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[0];
+        return new Class[] { WebSecConfig.class };
     }
 
     @Override

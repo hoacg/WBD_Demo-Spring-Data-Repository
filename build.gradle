@@ -37,5 +37,10 @@ dependencies {
     // For login form
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
 
+    // Spring Security
+    compile group: 'org.springframework.security', name: 'spring-security-web', version: '4.2.3.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: '4.2.3.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '4.2.3.RELEASE'
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.2.RELEASE'
 
 }

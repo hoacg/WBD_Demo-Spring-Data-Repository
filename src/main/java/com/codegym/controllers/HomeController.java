@@ -26,4 +26,9 @@ public class HomeController {
         else
             return "error";
     }
+
+    @GetMapping("/user")
+    public String getUserView() {
+        return "user";
+    }
 }
