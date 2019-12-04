@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LoginController {
 
-    @GetMapping("/login")
+    @GetMapping("/my-login")
     public ModelAndView getLoginForm() {
         return new ModelAndView("login", "user", new User());
     }
