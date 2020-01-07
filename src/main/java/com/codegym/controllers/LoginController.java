@@ -15,28 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LoginController {
 
-    @Autowired
-    IUserService userService;
-
-    @GetMapping("/login")
+    @GetMapping("/my-login")
     public ModelAndView getLoginForm() {
         return new ModelAndView("login", "user", new User());
     }
 
-    @PostMapping("/login")
-    public ModelAndView doLogin(@ModelAttribute User user, HttpServletRequest req) {
-
-        boolean isLogin = userService.login(user.getEmail(), user.getPassword());
-
-        String message;
-        if (isLogin) {
-            message = "Đăng nhập thành công";
-            req.getSession(true).setAttribute("isLogin", true);
-        } else {
-            message = "Đăng nhập thất bại";
-            req.getSession(true).setAttribute("isLogin", false);
-        }
-
-        return new ModelAndView("login", "message", message);
-    }
 }

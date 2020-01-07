@@ -34,20 +34,22 @@ public class CustomerController {
 
     @PostMapping("/customers")
     public ModelAndView createCustomer(@Validated @ModelAttribute Customer customer, BindingResult bindingResult) {
+
         PhoneNumberValidator validator = new PhoneNumberValidator();
         validator.validate(customer, bindingResult);
 
         if (bindingResult.hasFieldErrors()) {
             return new ModelAndView("customer-form");
         } else {
-            Customer savedCustomer = customerService.save(customer);
-            return new ModelAndView("customer", "customer", savedCustomer);
+            Customer newCustomer = customerService.save(customer);
+            return new ModelAndView("customer", "customer", newCustomer);
         }
 
     }
 
     @GetMapping("/customers/{customer}")
     public String getCustomerDetail(Customer customer, Model model) {
+
         model.addAttribute("customer", customer);
 
         return "customer";
