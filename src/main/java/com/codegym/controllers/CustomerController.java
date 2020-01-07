@@ -22,8 +22,8 @@ public class CustomerController {
     @GetMapping("/customers")
     public String getCustomerList(Model model) {
 
-        List<Customer> customerList = customerService.getAll();
-        model.addAttribute("customers", customerList);
+        List<Customer> customers = customerService.getAll();
+        model.addAttribute("customers", customers);
         return "customer-list";
     }
 
@@ -40,8 +40,8 @@ public class CustomerController {
         if (bindingResult.hasFieldErrors()) {
             return new ModelAndView("customer-form");
         } else {
-            Customer newCustomer = customerService.save(customer);
-            return new ModelAndView("customer", "customer", newCustomer);
+            Customer savedCustomer = customerService.save(customer);
+            return new ModelAndView("customer", "customer", savedCustomer);
         }
 
     }
