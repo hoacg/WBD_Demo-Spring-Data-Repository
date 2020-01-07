@@ -24,6 +24,7 @@ public class CustomerController {
 
         List<Customer> customerList = customerService.getAll();
         model.addAttribute("customers", customerList);
+
         return "customer-list";
     }
 
@@ -34,6 +35,7 @@ public class CustomerController {
 
     @PostMapping("/customers")
     public ModelAndView createCustomer(@Validated @ModelAttribute Customer customer, BindingResult bindingResult) {
+
         PhoneNumberValidator validator = new PhoneNumberValidator();
         validator.validate(customer, bindingResult);
 
@@ -48,6 +50,7 @@ public class CustomerController {
 
     @GetMapping("/customers/{customer}")
     public String getCustomerDetail(Customer customer, Model model) {
+
         model.addAttribute("customer", customer);
 
         return "customer";
